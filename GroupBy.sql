@@ -75,8 +75,30 @@ ORDER BY department
 
 --Assignments
 
---How many people have the same first names in the company?
+--How many people have the same first names in the company that is greater than 1?
 
 SELECT first_name, COUNT(*)
-FROM em
+FROM employees
+GROUP BY first_name
+HAVING count(*) > 1
 
+--Filter out the unique departments without using the Distinct keyword
+
+SELECT department
+FROM employees
+GROUP BY department
+
+--Write a query that will display the different domain names used by each employee and how many employees use each domain
+
+SELECT SUBSTRING(email, POSITION('@' IN email)+1) as domain_name, count(*)
+FROM employees
+WHERE email IS NOT NULL
+GROUP BY domain_name
+
+
+--Write a query that will show the min, max, and average salary of each gender broken down by region
+
+SELECT gender, region_id, MIN(salary) as min_salary, MAX(salary) as max_salary, ROUND(AVG(salary)) as avg_salary
+FROM employees
+GROUP BY gender, region_id
+ORDER BY gender, region_id
