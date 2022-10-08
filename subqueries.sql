@@ -38,5 +38,7 @@ WHERE region_id IN (select region_id from regions WHERE country = 'Asia' or coun
 Group By first_name, department, salary
 
 --ALL/ANY Clause - use next to > < or = operators in the Where clause or the Having Clause
-
+    -- ANY operator returns true if any of the subquery values meet the condition
+    -- ALL operator returns true if all of the subquery values meet the condition
+    -- The ALL operator is more preferrable because ANY will make things too confusing
 
