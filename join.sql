@@ -29,3 +29,19 @@ AND email IS Not NULL
 SELECT country, Count(employee_id) as total_employees
 from employee_id e, regions r
 WHERE employees.region_id = regions.region_id
+
+
+--INNER JOIN means a table is being matched with the data of another table
+
+SELECT first_name, country
+from employees INNER JOIN regions
+ON employees.region_id = regions.region_id
+
+SELECT first_name, email, division, country
+from employees INNER Join departments
+ON employees.department = departments.department
+INNER JOIN  regions ON employees.region_id = regions.region_id
+WHERE email IS NOT NULL
+
+--OUTER JOIN means a table for example, the departments table had departments not listed in employees table
+    --OUTER JOINS include LEFT JOIN and RIGHT JOIN.  LEFT JOIN exposes all the data from the table on the left side of the equal sign.  RIGHT join does the same but to the table on the right side of the equal sign.
