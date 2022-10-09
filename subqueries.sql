@@ -42,3 +42,34 @@ Group By first_name, department, salary
     -- ALL operator returns true if all of the subquery values meet the condition
     -- The ALL operator is more preferrable because ANY will make things too confusing
 
+    SELECT * from employees
+    WHERE region_id > ALL(SELECT region_id FROM regions where country = 'United States')
+
+-- Exercise 4 - Write a query that returns all of those employees that work in the kids division AND the dates at which those employees were hired is greater than all of the hire_dates of employees who work in the maintenance department
+
+    --1. You want a list of employees who work in the kids division and what their hire dates are
+
+    SELECT employee_id, department, hire_date
+    from employees
+    WHERE department IN (SELECT department 
+                        from departments 
+                        where division = 'Kids')
+
+    --2. You want a list of employees who work in the maintenance department and what their hire dates are
+
+   SELECT employee_id, department, hire_date
+   from employees
+   where department = 'Maintenance'
+
+    --3. Take the above 2 queries and display those that work in the kids division that have hire dates greater than those that work in the maintenance department.
+
+    SELECT employee_id, department, hire_date
+    from employees
+    WHERE department = ANY (SELECT department 
+					 from departments 
+					 where division = 'Kids') and hire_date > ALL (SELECT hire_date
+    from employees
+    where department = 'Maintenance')
+
+
+
