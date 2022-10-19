@@ -71,5 +71,44 @@ Group By first_name, department, salary
     from employees
     where department = 'Maintenance')
 
+--Exercise 5  - Display the salaries that appear the most frequently and then determine which one is the highest
+
+   --Display the salary from the employees table
+   --Get a count of each of the salaries
+
+   SELECT salary, count(*)
+   from employees
+   GROUP BY salary
+   Order By count(*) DESC
+   Limit 1 --To get the highest salary
+
+
+--Exercise 6 - Create a table called dupes as shown in Lesson 31
+    --Display all the names with their ids only once - need unique values
+
+    -- Get a count of each of the names
+
+SELECT name, COUNT(*)
+FROM dupes
+GROUP BY name
+HAVING count(*) >= 1
+
+--Exercise 7 - Write a query that will display the average salary of all the employees not including the highest paid and the lowest paid
+    -- 1. What is the average salary for all the employees
+
+            SELECT AVG(salary) from employees
+
+    -- 2. What is the Min and Max salary of the employees
+
+            SELECT Min(salary), MAX(salary) from employees
+
+    -- 3. Calculate average salary not in (Min an Max)
+
+Select Round(AVG(salary ))
+from employees
+where salary not in (
+	(select Min(salary) from employees),
+	(select Max(salary) from employees))
+
 
 
