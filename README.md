@@ -60,3 +60,41 @@ INSERT INTO fruits VALUES (NULL);
 7. Write a query that returns the count of 4. You'll need to count on the column fruit_name and not use COUNT(*)
     - HINT: You'll need to use an additional function inside of count to make this work.
 
+
+## Assignment 5: Practice with Subqueries
+
+The puzzles in this assignment will involve the tables you prepared in assignment 1. You'll be using subqueries to retrieve information to solve the problems in this assignment.
+
+
+
+In this section you'll practice working with subqueries. The questions that follow are based on the tables you created in assignment one. The image displays 3 of those tables you can use to solve the problems in this section. Reviewthese tables and understand how the data is related before moving on.
+
+
+**Questions for this assignment**
+
+1. Is the students table directly related to the courses table? Why or why not?
+
+
+
+2. Using subqueries only, write a SQL statement that returns the names of those students that are taking the courses Physics and US History.
+
+*NOTE: Do not jump ahead and use joins. I want you to solve this problem using only what you've learned in this section.*
+
+
+
+3. Using subqueries only, write a query that returns the name of the student that is taking the highest number of courses.
+
+    -   Display student_no and student_name from the students table
+    -   Show how many times a the student_no appears on the student_enrollment table.
+    -   Display the student with the highest count on said table--This is the one taking the most courses
+
+*NOTE: Do not jump ahead and use joins. I want you to solve this problem using only what you've learned in this section.*
+
+4. Answer TRUE or FALSE for the following statement:
+
+    Subqueries can be used in the FROM clause and the WHERE clause but cannot be used in the SELECT Clause.
+
+
+
+5. Write a query to find the student that is the oldest. You are not allowed to use LIMIT or the ORDER BY clause to solve this problem.
+
